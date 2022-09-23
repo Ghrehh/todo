@@ -6,7 +6,7 @@ const Todo = lazy(() => import("pages/Todo"));
 
 const Pages = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.REACT_APP_BASE_PATH}>
       <Suspense fallback={"loading..."}>
         <Routes>
           <Route exact path="/todo" element={<Todo />} />
