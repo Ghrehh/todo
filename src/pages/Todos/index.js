@@ -20,18 +20,15 @@ const Sortable = ({ group, onDropReceived, onDropped, data, children }) => {
 
         if (isSortable) {
           const data = e.dataTransfer.getData(`draggable/${group}`);
+          console.log(data);
           const parsedData = JSON.parse(data);
-          console.log(parsedData);
+          onDropReceived(parsedData);
         }
 
         e.preventDefault();
       }}
       onDragEnd={(e) => {
-        if(e.dataTransfer.dropEffect === "move") {
-          console.log('moved');
-        } else {
-          console.log('not moved');
-        }
+        if (e.dataTransfer.dropEffect === "move") onDropped();
       }}
       className={styles.sortable}
     >
@@ -52,7 +49,7 @@ const insertSortableAtIndex = (array, newSortableData, index) => {
 
 const removeSortableById = (array, sortableIdToRemove) => {
   const newArray = [...array];
-  const sortableToRemoveIndex = newArray.find(
+  const sortableToRemoveIndex = newArray.findIndex(
     ({ sortableId }) => sortableId === sortableIdToRemove
   );
 
@@ -112,10 +109,14 @@ const Foo = () => {
             group="note"
             key={sortableId}
             data={data}
-            onDropReceived={(newElement) =>
-              setDataOne(insertAtIndex(dataOne, newElement, index))
-            }
-            onDropped={() => setDataOne(removeIndex(dataOne, index))}
+            onDropReceived={(newSortable) => {
+              console.log('drop rec', dataOne, newSortable, index);
+              setDataOne(insertSortableAtIndex(dataOne, newSortable, index))
+            }}
+            onDropped={() => {
+              console.log('dropping', dataOne, sortableId);
+              setDataOne(removeSortableById(dataOne, sortableId))
+            }}
           >
             <p
               style={{ backgroundColor: data.color }}
@@ -132,10 +133,15 @@ const Foo = () => {
           <Sortable
             group="note"
             key={sortableId}
-            onDropReceived={(newElement) =>
-              setDataTwo(insertAtIndex(dataOne, newElement, index))
-            }
-            onDropped={() => setDataTwo(removeIndex(dataOne, index))}
+            data={data}
+            onDropReceived={(newSortable) => {
+              console.log('drop rec', dataTwo, newSortable, index);
+              setDataTwo(insertSortableAtIndex(dataTwo, newSortable, index))
+            }}
+            onDropped={() => {
+              console.log('dropping', dataTwo, sortableId);
+              setDataTwo(removeSortableById(dataTwo, sortableId))
+            }}
           >
             <p
               style={{ backgroundColor: data.color }}
