@@ -1,0 +1,46 @@
+.sortableOneContainer {
+  display: flex;
+  background-color: green;
+  margin-bottom: 20px;
+}
+
+.sortableTwoContainer {
+  background-color: blue;
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+}
+
+.sortableOne {
+  padding: 10px;
+  margin: 10px;
+  background-color: gray;
+  font-size: 25px;
+  font-weight: bold;
+  border-bottom: 5px solid black;
+}
+
+.sortableTwo {
+  padding: 10px;
+  margin: 10px;
+  background-color: gray;
+  font-size: 25px;
+  font-weight: bold;
+  border-bottom: 5px solid black;
+}
+
+.sortable {
+  border: 1px solid transparent;
+}
+
+.dragging {
+  border: 1px solid black;
+}
+
+.dragging > * {
+  pointer-events: none;
+}
+
+.selected {
+  opacity: 0;
+}
