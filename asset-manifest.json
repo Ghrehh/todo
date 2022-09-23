@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "https://ghrehh.github.io/todo/static/css/main.31d6cfe0.css",
+    "main.js": "https://ghrehh.github.io/todo/static/js/main.fde0d1ab.js",
+    "index.html": "https://ghrehh.github.io/todo/index.html",
+    "main.fde0d1ab.js.map": "https://ghrehh.github.io/todo/static/js/main.fde0d1ab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.fde0d1ab.js"
+  ]
+}
