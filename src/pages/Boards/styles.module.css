@@ -24,4 +24,13 @@
   padding: 20px;
   color: black;
   text-decoration: none;
+  display: flex;
+}
+
+.boardLast {
+  border: 3px solid #d6d6d6;
+  height: 50px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 5px;
 }

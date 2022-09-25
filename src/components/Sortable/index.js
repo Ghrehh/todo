@@ -1,10 +1,21 @@
 import PropTypes from "prop-types";
 
-const Sortable = ({ group, onDropReceived, onDropped, data, ...restProps }) => {
+const Sortable = ({
+  group,
+  draggable,
+  onDropReceived,
+  onDropped,
+  data,
+  ...restProps
+}) => {
+  if (draggable) {
+    if (!data || !onDropped)
+      throw new Error("missing required props data or onDropped");
+  }
   return (
     <div
       {...restProps}
-      draggable
+      draggable={draggable}
       onDragStart={(e) => {
         e.dataTransfer.setData(`draggable/${group}`, JSON.stringify(data));
         e.dataTransfer.effectAllowed = "move";
@@ -37,8 +48,13 @@ const Sortable = ({ group, onDropReceived, onDropped, data, ...restProps }) => {
 Sortable.propTypes = {
   group: PropTypes.string.isRequired,
   onDropReceived: PropTypes.func.isRequired,
-  onDropped: PropTypes.func.isRequired,
-  data: PropTypes.object.isRequired,
+  onDropped: PropTypes.func,
+  data: PropTypes.object,
+  draggable: PropTypes.bool,
+};
+
+Sortable.defaultProps = {
+  draggable: true,
 };
 
 export default Sortable;
