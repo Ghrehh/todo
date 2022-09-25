@@ -14,9 +14,27 @@ const useBoards = () => {
       const newBoards = [...boards];
       newBoards.push({
         id: crypto.randomUUID(),
-        data: {
-          name,
-        },
+        iteration: 0,
+        name,
+      });
+
+      setBoards(newBoards);
+    },
+    [boards, setBoards]
+  );
+
+  const insertAtIndex = useCallback(
+    ({ name, id, iteration }, index) => {
+      if (typeof name !== "string") throw new Error("name is required");
+      if (typeof id !== "string") throw new Error("id is required");
+      if (typeof iteration !== "number")
+        throw new Error("iteration is required");
+
+      const newBoards = [...boards];
+      newBoards.splice(index, 0, {
+        id,
+        iteration: iteration + 1,
+        name,
       });
 
       setBoards(newBoards);
@@ -25,15 +43,16 @@ const useBoards = () => {
   );
 
   const update = useCallback(
-    (id, { name }) => {
+    ({ id, name }) => {
       if (typeof id !== "string") throw new Error("id is required");
 
       const newBoards = [...boards];
-      const updateIndex = newBoards.find((board) => board.id === id);
+      const updateIndex = newBoards.findIndex((board) => board.id === id);
 
-      if (updateIndex < 0) throw new Error("cannot find board to update");
+      if (updateIndex === -1) throw new Error("cannot find board to update");
 
-      newBoards[updateIndex].data = {
+      newBoards[updateIndex] = {
+        ...newBoards[updateIndex],
         name,
       };
 
@@ -43,13 +62,19 @@ const useBoards = () => {
   );
 
   const remove = useCallback(
-    (id) => {
+    ({ id, iteration }) => {
       if (typeof id !== "string") throw new Error("id is required");
+      if (typeof iteration !== "number")
+        throw new Error("iteration is required");
 
       const newBoards = [...boards];
-      const removeIndex = newBoards.find((board) => board.id === id);
+      const removeIndex = newBoards.findIndex(
+        (board) => board.id === id && board.iteration === iteration
+      );
 
-      if (removeIndex < 0) throw new Error("cannot find board to update");
+      console.log(removeIndex);
+
+      if (removeIndex === -1) throw new Error("cannot find board to update");
 
       newBoards.splice(removeIndex, 1);
 
@@ -62,10 +87,11 @@ const useBoards = () => {
     () => ({
       data: boards,
       create,
+      insertAtIndex,
       update,
       remove,
     }),
-    [boards, create, update, remove]
+    [boards, create, insertAtIndex, update, remove]
   );
 };
 
