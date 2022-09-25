@@ -1,12 +1,17 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css";
+
+import CacheProvider from "contexts/cache/Provider";
 import Router from "pages";
+
+import "./index.css";
 
 const root = createRoot(document.getElementById("root"));
 
 root.render(
   <StrictMode>
-    <Router />
+    <CacheProvider>
+      <Router />
+    </CacheProvider>
   </StrictMode>
 );

@@ -1,41 +1,9 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState } from "react";
+
+import Sortable from "components/Sortable";
+import useBoards from "hooks/useBoards";
+
 import styles from "./styles.module.css";
-
-const Sortable = ({ group, onDropReceived, onDropped, data, children }) => {
-  return (
-    <div
-      draggable
-      onDragStart={(e) => {
-        e.dataTransfer.setData(`draggable/${group}`, JSON.stringify(data));
-        e.dataTransfer.effectAllowed = "move";
-      }}
-      onDragOver={(e) => {
-        const isSortable = e.dataTransfer.types.includes(`draggable/${group}`);
-        if (isSortable) e.dataTransfer.dropEffect = "move";
-
-        e.preventDefault();
-      }}
-      onDrop={(e) => {
-        const isSortable = e.dataTransfer.types.includes(`draggable/${group}`);
-
-        if (isSortable) {
-          const data = e.dataTransfer.getData(`draggable/${group}`);
-          console.log(data);
-          const parsedData = JSON.parse(data);
-          onDropReceived(parsedData);
-        }
-
-        e.preventDefault();
-      }}
-      onDragEnd={(e) => {
-        if (e.dataTransfer.dropEffect === "move") onDropped();
-      }}
-      className={styles.sortable}
-    >
-      {children}
-    </div>
-  );
-};
 
 const insertSortableAtIndex = (array, newSortableData, index) => {
   const newArray = [...array];
@@ -101,22 +69,29 @@ const Foo = () => {
     },
   ]);
 
+  const {
+    data: boards,
+    create: createBoard,
+    update: updateBoard,
+    remove: removeBoard,
+  } = useBoards();
+  console.log(boards);
+
   return (
     <>
+      <button onClick={() => createBoard({ name: "a cool name"}) }>foo</button>
       <div className={styles.sortableOneContainer}>
         {dataOne.map(({ sortableId, data }, index) => (
           <Sortable
             group="note"
             key={sortableId}
             data={data}
-            onDropReceived={(newSortable) => {
-              console.log('drop rec', dataOne, newSortable, index);
+            onDropReceived={(newSortable) =>
               setDataOne(insertSortableAtIndex(dataOne, newSortable, index))
-            }}
-            onDropped={() => {
-              console.log('dropping', dataOne, sortableId);
+            }
+            onDropped={() =>
               setDataOne(removeSortableById(dataOne, sortableId))
-            }}
+            }
           >
             <p
               style={{ backgroundColor: data.color }}
@@ -134,14 +109,12 @@ const Foo = () => {
             group="note"
             key={sortableId}
             data={data}
-            onDropReceived={(newSortable) => {
-              console.log('drop rec', dataTwo, newSortable, index);
+            onDropReceived={(newSortable) =>
               setDataTwo(insertSortableAtIndex(dataTwo, newSortable, index))
-            }}
-            onDropped={() => {
-              console.log('dropping', dataTwo, sortableId);
+            }
+            onDropped={() =>
               setDataTwo(removeSortableById(dataTwo, sortableId))
-            }}
+            }
           >
             <p
               style={{ backgroundColor: data.color }}

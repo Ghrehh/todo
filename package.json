@@ -33,7 +33,11 @@
       "plugin:react/recommended",
       "plugin:prettier/recommended",
       "plugin:react/jsx-runtime"
-    ]
+    ],
+    "rules": {
+      "no-unused-vars": ["error", { "varsIgnorePattern": "^_" }],
+      "camelcase": ["error"]
+    }
   },
   "browserslist": {
     "production": [
