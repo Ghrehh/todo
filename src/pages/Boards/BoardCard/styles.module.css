@@ -1,0 +1,20 @@
+.board {
+  background-color: #d6d6d6;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.board:hover {
+  background-color: #a4a4a4;
+}
+
+.boardLink {
+  box-sizing: border-box;
+  width: 100%;
+  display: inline-block;
+  padding: 20px;
+  color: black;
+  text-decoration: none;
+  display: flex;
+}

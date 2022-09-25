@@ -9,8 +9,9 @@ const Sortable = ({
   ...restProps
 }) => {
   if (draggable) {
-    if (!data || !onDropped)
+    if (!data || !onDropped) {
       throw new Error("missing required props data or onDropped");
+    }
   }
   return (
     <div
@@ -49,7 +50,7 @@ Sortable.propTypes = {
   group: PropTypes.string.isRequired,
   onDropReceived: PropTypes.func.isRequired,
   onDropped: PropTypes.func,
-  data: PropTypes.object,
+  data: PropTypes.any,
   draggable: PropTypes.bool,
 };
 

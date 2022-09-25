@@ -1,22 +1,21 @@
 import { useCallback } from "react";
 import Sortable from "components/Sortable";
-import { Link } from "react-router-dom";
-import useBoards from "hooks/useBoards";
+import useBoards from "./useBoards";
+import useCreateBoard from "./useCreateBoard";
+import useSortBoards from "./useSortBoards";
+import BoardCard from "./BoardCard";
 
 import styles from "./styles.module.css";
 
 const Boards = () => {
-  const {
-    data: boards,
-    create: createBoard,
-    insertAtIndex: insertBoardAtIndex,
-    remove: removeBoard,
-  } = useBoards();
+  const [boards] = useBoards();
+  const createBoard = useCreateBoard();
+  const { onDropReceived, onDropped } = useSortBoards();
 
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      createBoard({ name: e.target.name.value});
+      createBoard({ name: e.target.name.value });
       e.target.name.value = "";
     },
     [createBoard]
@@ -24,27 +23,24 @@ const Boards = () => {
 
   return (
     <div className={styles.boards}>
-      {boards.map((board, index) => (
+      {boards.map(({ sortableId, boardId }, index) => (
         <Sortable
           className={styles.board}
           group="note"
-          key={board.id + board.iteration}
-          data={board}
-          onDropReceived={(movedBoard) => insertBoardAtIndex(movedBoard, index)}
-          onDropped={() => removeBoard(board)}
+          key={sortableId}
+          data={boardId}
+          onDropReceived={(movedBoardId) => onDropReceived(movedBoardId, index)}
+          onDropped={() => onDropped(sortableId)}
         >
-          <Link className={styles.boardLink} to={`boards/${board.id}`}>
-            <p className={styles.sortableOne}>{board.name}</p>
-          </Link>
+          <BoardCard id={boardId} />
         </Sortable>
       ))}
       <Sortable
         className={styles.boardLast}
         draggable={false}
         group="note"
-        data={[]}
-        onDropReceived={(movedBoard) =>
-          insertBoardAtIndex(movedBoard, boards.length)
+        onDropReceived={(movedBoardId) =>
+          onDropReceived(movedBoardId, boards.length)
         }
       ></Sortable>
       <form onSubmit={handleSubmit}>

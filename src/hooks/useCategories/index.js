@@ -1,9 +1,4 @@
-import { useMemo, useCallback } from "react";
-
-import { crypto } from "utils/window";
-
-import useLocalStorage from "hooks/useLocalStorage";
-
+/*
 const useBoards = () => {
   const [boards, setBoards] = useLocalStorage("boards", []);
 
@@ -40,6 +35,19 @@ const useBoards = () => {
       setBoards(newBoards);
     },
     [boards, setBoards]
+  );
+
+  const find = useCallback(
+    ({ id }) => {
+      if (typeof id !== "string") throw new Error("id is required");
+
+      const board = boards.find((board) => board.id === id);
+
+      if (board === undefined) throw new Error("cannot find board");
+
+      return board;
+    },
+    [boards]
   );
 
   const update = useCallback(
@@ -90,9 +98,11 @@ const useBoards = () => {
       insertAtIndex,
       update,
       remove,
+      find,
     }),
-    [boards, create, insertAtIndex, update, remove]
+    [boards, create, insertAtIndex, update, remove, find]
   );
 };
 
 export default useBoards;
+*/
