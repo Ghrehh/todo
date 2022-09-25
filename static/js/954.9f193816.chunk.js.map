@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/954.9f193816.chunk.js","mappings":"oHAIA,UAJY,WACV,OAAO,kCACR,C","sources":["pages/Todos/index.js"],"sourcesContent":["const Foo = () => {\n  return <div>todos</div>;\n};\n\nexport default Foo;\n"],"names":[],"sourceRoot":""}
