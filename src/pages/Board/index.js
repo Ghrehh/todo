@@ -24,6 +24,7 @@ const BoardPage = () => {
     },
     [createCategory]
   );
+  console.log(boardId);
 
   return (
     <div className={styles.boardPage}>
@@ -35,9 +36,9 @@ const BoardPage = () => {
               className={styles.category}
               group="catgories"
               key={sortableId}
-              data={boardId}
-              onDropReceived={(movedBoardId) =>
-                onDropReceived(movedBoardId, index)
+              data={categoryId}
+              onDropReceived={(movedCategoryId) =>
+                onDropReceived(movedCategoryId, index)
               }
               onDropped={() => onDropped(sortableId)}
             >
