@@ -1,36 +1,29 @@
-import { useCallback, useMemo } from "react";
+import { useCallback } from "react";
 import useCache from "hooks/useCache";
-import { localStorage, crypto } from "utils/window";
+import { localStorage } from "utils/window";
 
 const useLocalStorage = (key, defaultValue) => {
+  const unparsedLocalStorageData = localStorage.getItem(key);
+  if (unparsedLocalStorageData === null && defaultValue !== null) {
+    localStorage.setItem(key, JSON.stringify(defaultValue));
+  }
+
   // Shared cache key between all consumers of a local storage key, so that an update to one
   // will refresh them all.
-  const [_, setCacheData] = useCache(
+  const [cacheData, setCacheData] = useCache(
     `local-storage-updater-${key}`,
-    crypto.randomUUID()
+    JSON.parse(localStorage.getItem(key))
   );
 
   const setData = useCallback(
     (newData) => {
       localStorage.setItem(key, JSON.stringify(newData));
-      setCacheData(crypto.randomUUID());
+      setCacheData(newData);
     },
     [setCacheData, key]
   );
 
-  const data = useMemo(() => {
-    const value = localStorage.getItem(key);
-
-    if (value === null && defaultValue !== null) {
-      setData(defaultValue);
-      return defaultValue;
-    }
-
-    console.log(key, value);
-    return JSON.parse(value);
-  }, [defaultValue, key, setData]);
-
-  return [data, setData];
+  return [cacheData, setData];
 };
 
 export default useLocalStorage;

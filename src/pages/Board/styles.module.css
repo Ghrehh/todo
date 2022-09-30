@@ -1,0 +1,25 @@
+.boardPage {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.categories {
+  flex-grow: 1;
+  width: 100%;
+  overflow: scroll;
+}
+
+.categoriesScroller {
+  width: fit-content;
+  height: 100%;
+  display: flex;
+}
+
+.category {
+  display: inline-block;
+  height: 100%;
+  width: 300px;
+  padding: 10px;
+  box-sizing: border-box;
+}

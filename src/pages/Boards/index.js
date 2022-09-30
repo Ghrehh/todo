@@ -26,7 +26,7 @@ const Boards = () => {
       {boards.map(({ sortableId, boardId }, index) => (
         <Sortable
           className={styles.board}
-          group="note"
+          group="boards"
           key={sortableId}
           data={boardId}
           onDropReceived={(movedBoardId) => onDropReceived(movedBoardId, index)}

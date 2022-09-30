@@ -23,8 +23,8 @@ const useCreateBoard = () => {
       localStorage.setItem(
         `board-${newBoardId}`,
         JSON.stringify({
-          id: crypto.randomUUID(),
           name,
+          categories: [],
         })
       );
 
