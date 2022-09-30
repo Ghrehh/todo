@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { useCallback } from "react";
 
 import Sortable from "components/Sortable";
@@ -46,6 +47,10 @@ const Category = ({ id }) => {
       </div>
     </div>
   );
+};
+
+Category.propTypes = {
+  id: PropTypes.string.isRequired,
 };
 
 export default Category;

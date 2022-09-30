@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import useTodo from "hooks/useTodo";
 import styles from "./style.module.css";
 
@@ -7,5 +7,8 @@ const Todo = ({ id }) => {
   return <div className={styles.todo}>{title}</div>;
 };
 
-export default Todo;
+Todo.propTypes = {
+  id: PropTypes.string.isRequired,
+};
 
+export default Todo;
