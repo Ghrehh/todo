@@ -3,13 +3,16 @@ import { useCallback } from "react";
 import Sortable from "components/Sortable";
 import useCategory from "hooks/useCategory";
 
+import useSortTodos from "./useSortTodos";
 import useCreateTodo from "./useCreateTodo";
+import Todo from "./Todo";
 
 import styles from "./styles.module.css";
 
 const Category = ({ id }) => {
   const [{ name, todos }] = useCategory(id);
   const createTodo = useCreateTodo(id);
+  const { onDropReceived, onDropped } = useSortTodos(id);
 
   const handleSubmit = useCallback(
     (e) => {
@@ -30,12 +33,10 @@ const Category = ({ id }) => {
             group="todos"
             key={sortableId}
             data={todoId}
-            onDropReceived={(movedTodoId) =>
-              onDropReceived(movedTodoId, index)
-            }
+            onDropReceived={(movedTodoId) => onDropReceived(movedTodoId, index)}
             onDropped={() => onDropped(sortableId)}
           >
-            <p></p>
+            <Todo id={todoId} />
           </Sortable>
         ))}
         <form onSubmit={handleSubmit}>

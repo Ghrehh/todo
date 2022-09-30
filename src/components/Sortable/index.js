@@ -13,26 +13,34 @@ const Sortable = ({
       throw new Error("missing required props data or onDropped");
     }
   }
+
   return (
     <div
       {...restProps}
       draggable={draggable}
       onDragStart={(e) => {
+        e.stopPropagation();
         e.dataTransfer.setData(`draggable/${group}`, JSON.stringify(data));
         e.dataTransfer.effectAllowed = "move";
       }}
       onDragOver={(e) => {
+        e.stopPropagation();
         const isSortable = e.dataTransfer.types.includes(`draggable/${group}`);
-        if (isSortable) e.dataTransfer.dropEffect = "move";
+
+        if (isSortable) {
+          e.dataTransfer.dropEffect = "move";
+        } else {
+          e.dataTransfer.dropEffect = "none";
+        }
 
         e.preventDefault();
       }}
       onDrop={(e) => {
+        e.stopPropagation();
         const isSortable = e.dataTransfer.types.includes(`draggable/${group}`);
 
         if (isSortable) {
           const data = e.dataTransfer.getData(`draggable/${group}`);
-          console.log(data);
           const parsedData = JSON.parse(data);
           onDropReceived(parsedData);
         }
@@ -40,6 +48,7 @@ const Sortable = ({
         e.preventDefault();
       }}
       onDragEnd={(e) => {
+        e.stopPropagation();
         if (e.dataTransfer.dropEffect === "move") onDropped();
       }}
     />
