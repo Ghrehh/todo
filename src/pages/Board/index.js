@@ -24,11 +24,10 @@ const BoardPage = () => {
     },
     [createCategory]
   );
-  console.log(boardId);
 
   return (
     <div className={styles.boardPage}>
-      <h1>{name}</h1>
+      <h1 className={styles.heading}>{name}</h1>
       <div className={styles.categories}>
         <div className={styles.categoriesScroller}>
           {categories.map(({ sortableId, categoryId }, index) => (
