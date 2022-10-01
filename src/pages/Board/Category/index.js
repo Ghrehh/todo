@@ -6,6 +6,7 @@ import useCategory from "hooks/useCategory";
 
 import useSortTodos from "./useSortTodos";
 import useCreateTodo from "./useCreateTodo";
+import useDeleteCategory from "./useDeleteCategory";
 import Todo from "./Todo";
 
 import styles from "./styles.module.css";
@@ -14,6 +15,7 @@ const Category = ({ id }) => {
   const [{ name, todos }] = useCategory(id);
   const createTodo = useCreateTodo(id);
   const { onDropReceived, onDropped } = useSortTodos(id);
+  const deleteCategory = useDeleteCategory(id);
 
   const handleSubmit = useCallback(
     (e) => {
@@ -24,9 +26,20 @@ const Category = ({ id }) => {
     [createTodo]
   );
 
+  const handleDelete = () => {
+    const shouldDelete = window.confirm("Do you want to delete this category?");
+
+    if (shouldDelete) deleteCategory();
+  };
+
   return (
     <div className={styles.category}>
-      <h1>{name}</h1>
+      <div className={styles.heading}>
+        <h1>{name}</h1>
+        <button className={styles.delete} onClick={handleDelete}>
+          X
+        </button>
+      </div>
       <div className={styles.todos}>
         {todos.map(({ sortableId, todoId }, index) => (
           <Sortable

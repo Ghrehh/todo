@@ -15,7 +15,6 @@ const useDeleteTodo = (deleteTodoId) => {
         );
 
         if (todoDeleteIndex !== -1) {
-          console.log(category);
           const newTodos = [...category.todos];
           newTodos.splice(todoDeleteIndex, 1);
 
@@ -24,7 +23,6 @@ const useDeleteTodo = (deleteTodoId) => {
             todos: newTodos,
           };
 
-          console.log(categoryKey);
           localStorage.setItem(categoryKey, JSON.stringify(newCategory));
           cache.set(categoryKey, newCategory);
         }
