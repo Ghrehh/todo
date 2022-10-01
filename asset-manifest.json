@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "https://ghrehh.github.io/todo/static/css/main.3f83862d.css",
-    "main.js": "https://ghrehh.github.io/todo/static/js/main.3a0da3db.js",
+    "main.js": "https://ghrehh.github.io/todo/static/js/main.848a78b2.js",
     "static/css/687.b1448d41.chunk.css": "https://ghrehh.github.io/todo/static/css/687.b1448d41.chunk.css",
     "static/js/687.121dc21a.chunk.js": "https://ghrehh.github.io/todo/static/js/687.121dc21a.chunk.js",
-    "static/css/121.3b04cf8f.chunk.css": "https://ghrehh.github.io/todo/static/css/121.3b04cf8f.chunk.css",
-    "static/js/121.9fa07518.chunk.js": "https://ghrehh.github.io/todo/static/js/121.9fa07518.chunk.js",
+    "static/css/98.5024f459.chunk.css": "https://ghrehh.github.io/todo/static/css/98.5024f459.chunk.css",
+    "static/js/98.bd125238.chunk.js": "https://ghrehh.github.io/todo/static/js/98.bd125238.chunk.js",
     "index.html": "https://ghrehh.github.io/todo/index.html",
     "main.3f83862d.css.map": "https://ghrehh.github.io/todo/static/css/main.3f83862d.css.map",
-    "main.3a0da3db.js.map": "https://ghrehh.github.io/todo/static/js/main.3a0da3db.js.map",
+    "main.848a78b2.js.map": "https://ghrehh.github.io/todo/static/js/main.848a78b2.js.map",
     "687.b1448d41.chunk.css.map": "https://ghrehh.github.io/todo/static/css/687.b1448d41.chunk.css.map",
     "687.121dc21a.chunk.js.map": "https://ghrehh.github.io/todo/static/js/687.121dc21a.chunk.js.map",
-    "121.3b04cf8f.chunk.css.map": "https://ghrehh.github.io/todo/static/css/121.3b04cf8f.chunk.css.map",
-    "121.9fa07518.chunk.js.map": "https://ghrehh.github.io/todo/static/js/121.9fa07518.chunk.js.map"
+    "98.5024f459.chunk.css.map": "https://ghrehh.github.io/todo/static/css/98.5024f459.chunk.css.map",
+    "98.bd125238.chunk.js.map": "https://ghrehh.github.io/todo/static/js/98.bd125238.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3f83862d.css",
-    "static/js/main.3a0da3db.js"
+    "static/js/main.848a78b2.js"
   ]
 }
