@@ -10,17 +10,12 @@
 
 .categories {
   flex-grow: 1;
-  width: 100%;
-  overflow: scroll;
-}
-
-.categoriesScroller {
-  width: fit-content;
-  height: 100%;
+  overflow-x: scroll;
   display: flex;
 }
 
 .category {
+  flex-shrink: 0;
   display: inline-block;
   height: 100%;
   width: 300px;

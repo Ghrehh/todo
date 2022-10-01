@@ -29,26 +29,24 @@ const BoardPage = () => {
     <div className={styles.boardPage}>
       <h1 className={styles.heading}>{name}</h1>
       <div className={styles.categories}>
-        <div className={styles.categoriesScroller}>
-          {categories.map(({ sortableId, categoryId }, index) => (
-            <Sortable
-              className={styles.category}
-              group="catgories"
-              key={sortableId}
-              data={categoryId}
-              onDropReceived={(movedCategoryId) =>
-                onDropReceived(movedCategoryId, index)
-              }
-              onDropped={() => onDropped(sortableId)}
-            >
-              <Category id={categoryId} />
-            </Sortable>
-          ))}
-          <form onSubmit={handleSubmit}>
-            <input required minLength="1" name="name" placeholder="name" />
-            <input type="submit" value="Add Category" />
-          </form>
-        </div>
+        {categories.map(({ sortableId, categoryId }, index) => (
+          <Sortable
+            className={styles.category}
+            group="catgories"
+            key={sortableId}
+            data={categoryId}
+            onDropReceived={(movedCategoryId) =>
+              onDropReceived(movedCategoryId, index)
+            }
+            onDropped={() => onDropped(sortableId)}
+          >
+            <Category id={categoryId} />
+          </Sortable>
+        ))}
+        <form onSubmit={handleSubmit}>
+          <input required minLength="1" name="name" placeholder="name" />
+          <input type="submit" value="Add Category" />
+        </form>
       </div>
     </div>
   );
