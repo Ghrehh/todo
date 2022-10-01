@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunktodo=self.webpackChunktodo||[]).push([[265],{265:function(e,n,t){t.r(n),t.d(n,{default:function(){return u}});var s="styles_sortableOneContainer__E42qm",r=t(184),u=function(){return(0,r.jsx)(r.Fragment,{children:(0,r.jsx)("div",{className:s})})}}}]);
-//# sourceMappingURL=265.24f44b4d.chunk.js.map

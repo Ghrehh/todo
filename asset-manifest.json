@@ -1,23 +1,21 @@
 {
   "files": {
-    "main.css": "https://ghrehh.github.io/todo/static/css/main.90f6920e.css",
-    "main.js": "https://ghrehh.github.io/todo/static/js/main.3495f516.js",
-    "static/css/265.06389f4e.chunk.css": "https://ghrehh.github.io/todo/static/css/265.06389f4e.chunk.css",
-    "static/js/265.24f44b4d.chunk.js": "https://ghrehh.github.io/todo/static/js/265.24f44b4d.chunk.js",
-    "static/js/298.f8a8fe2e.chunk.js": "https://ghrehh.github.io/todo/static/js/298.f8a8fe2e.chunk.js",
-    "static/css/342.36fc7960.chunk.css": "https://ghrehh.github.io/todo/static/css/342.36fc7960.chunk.css",
-    "static/js/342.e835923d.chunk.js": "https://ghrehh.github.io/todo/static/js/342.e835923d.chunk.js",
+    "main.css": "https://ghrehh.github.io/todo/static/css/main.3f83862d.css",
+    "main.js": "https://ghrehh.github.io/todo/static/js/main.f4ba2544.js",
+    "static/css/687.b1448d41.chunk.css": "https://ghrehh.github.io/todo/static/css/687.b1448d41.chunk.css",
+    "static/js/687.e4bf94c2.chunk.js": "https://ghrehh.github.io/todo/static/js/687.e4bf94c2.chunk.js",
+    "static/css/812.7646193d.chunk.css": "https://ghrehh.github.io/todo/static/css/812.7646193d.chunk.css",
+    "static/js/812.1ddddadf.chunk.js": "https://ghrehh.github.io/todo/static/js/812.1ddddadf.chunk.js",
     "index.html": "https://ghrehh.github.io/todo/index.html",
-    "main.90f6920e.css.map": "https://ghrehh.github.io/todo/static/css/main.90f6920e.css.map",
-    "main.3495f516.js.map": "https://ghrehh.github.io/todo/static/js/main.3495f516.js.map",
-    "265.06389f4e.chunk.css.map": "https://ghrehh.github.io/todo/static/css/265.06389f4e.chunk.css.map",
-    "265.24f44b4d.chunk.js.map": "https://ghrehh.github.io/todo/static/js/265.24f44b4d.chunk.js.map",
-    "298.f8a8fe2e.chunk.js.map": "https://ghrehh.github.io/todo/static/js/298.f8a8fe2e.chunk.js.map",
-    "342.36fc7960.chunk.css.map": "https://ghrehh.github.io/todo/static/css/342.36fc7960.chunk.css.map",
-    "342.e835923d.chunk.js.map": "https://ghrehh.github.io/todo/static/js/342.e835923d.chunk.js.map"
+    "main.3f83862d.css.map": "https://ghrehh.github.io/todo/static/css/main.3f83862d.css.map",
+    "main.f4ba2544.js.map": "https://ghrehh.github.io/todo/static/js/main.f4ba2544.js.map",
+    "687.b1448d41.chunk.css.map": "https://ghrehh.github.io/todo/static/css/687.b1448d41.chunk.css.map",
+    "687.e4bf94c2.chunk.js.map": "https://ghrehh.github.io/todo/static/js/687.e4bf94c2.chunk.js.map",
+    "812.7646193d.chunk.css.map": "https://ghrehh.github.io/todo/static/css/812.7646193d.chunk.css.map",
+    "812.1ddddadf.chunk.js.map": "https://ghrehh.github.io/todo/static/js/812.1ddddadf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.90f6920e.css",
-    "static/js/main.3495f516.js"
+    "static/css/main.3f83862d.css",
+    "static/js/main.f4ba2544.js"
   ]
 }
