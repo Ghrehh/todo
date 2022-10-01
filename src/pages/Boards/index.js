@@ -38,7 +38,7 @@ const Boards = () => {
       <Sortable
         className={styles.boardLast}
         draggable={false}
-        group="note"
+        group="boards"
         onDropReceived={(movedBoardId) =>
           onDropReceived(movedBoardId, boards.length)
         }

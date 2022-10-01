@@ -40,6 +40,14 @@ const Category = ({ id }) => {
             <Todo id={todoId} />
           </Sortable>
         ))}
+        <Sortable
+          className={styles.todoLast}
+          draggable={false}
+          group="todos"
+          onDropReceived={(movedTodoId) =>
+            onDropReceived(movedTodoId, todos.length)
+          }
+        ></Sortable>
         <form onSubmit={handleSubmit}>
           <input required minLength="1" name="title" placeholder="title" />
           <input type="submit" value="Add Todo" />

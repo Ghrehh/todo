@@ -3,3 +3,9 @@
   height: 100%;
   padding: 12px;
 }
+
+.todoLast {
+  border: 1px solid black;
+  height: 35px;
+  margin-bottom: 12px;
+}
