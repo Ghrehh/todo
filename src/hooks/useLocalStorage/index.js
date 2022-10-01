@@ -11,7 +11,7 @@ const useLocalStorage = (key, defaultValue) => {
   // Shared cache key between all consumers of a local storage key, so that an update to one
   // will refresh them all.
   const [cacheData, setCacheData] = useCache(
-    `local-storage-updater-${key}`,
+    key,
     JSON.parse(localStorage.getItem(key))
   );
 
